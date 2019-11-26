@@ -4,8 +4,8 @@ from environs import Env
 
 
 load_dotenv()
-username = os.getenv('USER')
-password = os.getenv('PASSWORD')
+username = os.getenv('user')
+password = os.getenv('password')
 
 DATABASES = {
     'default': {
@@ -21,10 +21,10 @@ DATABASES = {
 INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = 'REPLACE_ME'
-# env = Env()
-# env.read_env()
-# env.bool("DEBUG")
-DEBUG = True
+env = Env()
+env.read_env()
+
+DEBUG = env('false')
 
 ROOT_URLCONF = "project.urls"
 
