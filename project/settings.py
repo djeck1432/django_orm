@@ -1,48 +1,50 @@
 import os
+import dj_database_url
 from dotenv import load_dotenv
 from environs import Env
 
 
 load_dotenv()
-<<<<<<< HEAD
+
 username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
 secret_key = os.getenv('SECRET_KEY')
 engine = os.getenv('ENGINE_DB')
-host = os.getenv("SECKRET_HOST")
+host = os.getenv("SECRET_HOST")
 port = os.getenv("SECRET_PORT")
 name = os.getenv("SECRET_NAME ")
-=======
-username = os.getenv('user')
-password = os.getenv('password')
->>>>>>> 8ea26a016cdb0e163b7568b1f8c48651ff25e7e0
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE':engine,
+#         'HOST': host,
+#         'PORT': port,
+#         'NAME': name,
+#         'USER': username,
+#         'PASSWORD': password,
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE':engine,
-        'HOST': host,
-        'PORT': port,
-        'NAME': name,
-        'USER': username,
-        'PASSWORD': password,
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'HOST': 'checkpoint.devman.org',
+        'PORT': '5434',
+        'NAME': 'checkpoint',
+        'USER': 'guard',
+        'PASSWORD': 'osim5',
     }
 }
 
+
+
 INSTALLED_APPS = ['datacenter']
 
-<<<<<<< HEAD
 SECRET_KEY = secret_key
-env = Env()
-env.read_env()
 
-DEBUG = env('false')
-=======
-SECRET_KEY = 'REPLACE_ME'
-env = Env()
-env.read_env()
+DEBUG = bool(os.environ.get('DJANGO_DEBUG',True))
+print(DEBUG)
 
-DEBUG = env('True')
->>>>>>> 8ea26a016cdb0e163b7568b1f8c48651ff25e7e0
 
 ROOT_URLCONF = "project.urls"
 
@@ -66,3 +68,6 @@ LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=500)
+
