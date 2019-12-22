@@ -1,38 +1,20 @@
 import os
-import dj_database_url
 from dotenv import load_dotenv
-from environs import Env
 
 
 load_dotenv()
-
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
+username = os.getenv('USERNAME_DB')
+password = os.getenv('PASSWORD_DB')
 secret_key = os.getenv('SECRET_KEY')
-engine = os.getenv('ENGINE_DB')
-host = os.getenv("SECRET_HOST")
-port = os.getenv("SECRET_PORT")
-name = os.getenv("SECRET_NAME ")
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE':engine,
-#         'HOST': host,
-#         'PORT': port,
-#         'NAME': name,
-#         'USER': username,
-#         'PASSWORD': password,
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         'HOST': 'checkpoint.devman.org',
         'PORT': '5434',
         'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'USER': username,
+        'PASSWORD': password,
     }
 }
 
@@ -42,8 +24,7 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = secret_key
 
-DEBUG = bool(os.environ.get('DJANGO_DEBUG',True))
-print(DEBUG)
+DEBUG = bool(os.environ.get('DJANGO_DEBUG',default=False))
 
 
 ROOT_URLCONF = "project.urls"
@@ -68,6 +49,3 @@ LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=500)
-
