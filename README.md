@@ -6,11 +6,17 @@
 # Переменые окружения 
 
  ```HOST ``` - 
+<br>
  ```PORT```-
+<br>
  ```NAME```-
+<br>
  ```USER```-
+<br>
  ```PASSWORD```-
+<br>
  ```SECRET_KEY```-
+<br>
  ```DEBUG```-
 
 # Как установить
