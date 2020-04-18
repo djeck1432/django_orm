@@ -19,21 +19,20 @@
 <br>
  ```DEBUG```- отладочный режим (```False```- отключенный,```True```- включенный );
 
-# Как установить
-
-Python3 должен быть уже установлен. Затем используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей:<br>
+# How to install
+Python3 have to be already installed. Then use pip (or pip3, there is a contravention with Python2) to install dependencies: :<br>
 
 ``` git clone https://github.com/djeck1432/django_orm.git ```
 
-После того, как скачали репозиторий, откройте в терминале(MacOs) или в консоли(Linux) папку ```django_orm``` следующей командой:<br>
+After you downloaded the repository open a folder ```django_orm``` using next command: <br>
 
 ```cd django_orm```
 
-Для того, что бы запустить сайт, нужно установить необходимые библиотеки:<br>
+Now all of the required libraries and modules have to be installed:<br>
 
-```pip install -r requirements.txt ```
+```pip install -r requirements.txt ```<br>
 
-Готово, мы установили проект и все необходимые библиотеки у нас на компьютере.
+Now we are ready for the script .
 
 # Как запустить сайт 
 
